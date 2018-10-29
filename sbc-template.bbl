@@ -1,0 +1,91 @@
+\begin{thebibliography}{}
+
+\bibitem[Al-Fuqaha et~al. 2015]{Al-Fuqaha2015}
+Al-Fuqaha, A., Guizani, M., Mohammadi, M., Aledhari, M., and Ayyash, M. (2015).
+\newblock {Internet of Things: A Survey on Enabling Technologies, Protocols and
+  Applications}.
+\newblock {\em IEEE Communications Surveys {\&} Tutorials}, 17(4):2347 --2376.
+
+\bibitem[Gafurov et~al. 2007]{Gafurov2007}
+Gafurov, D., Snekkenes, E., and Bours, P. (2007).
+\newblock {Gait authentication and identification using wearable accelerometer
+  sensor}.
+\newblock {\em 2007 IEEE Workshop on Automatic Identification Advanced
+  Technologies - Proceedings}, pages 220--225.
+
+\bibitem[Hsieh and Leu 2011]{Hsieh2011}
+Hsieh, W.-B. and Leu, J.-S. (2011).
+\newblock {Design of a time and location based One-Time Password authentication
+  scheme}.
+\newblock In {\em Wireless Communications and Mobile Computing Conference IWCMC
+  2011 7th International}, pages 201--206.
+
+\bibitem[{Insurance Institute for Highway Safety} 2014]{IIHS2014}
+{Insurance Institute for Highway Safety} (2014).
+\newblock {Moderate Overlap Frontal Cashworthiness Evaluation}.
+\newblock Technical Report September.
+
+\bibitem[Liu et~al. 2009]{Liu2009}
+Liu, J., Zhong, L., Wickramasuriya, J., and Vasudevan, V. (2009).
+\newblock {uWave: Accelerometer-based personalized gesture recognition and its
+  applications}.
+\newblock {\em Pervasive and Mobile Computing}, 5(6):657--675.
+
+\bibitem[Mathur et~al. 2010]{Mathur2010}
+Mathur, S., Reznik, A., Ye, C., Mukherjee, R., Rahman, A., Shah, Y., Trappe,
+  W., and Mandayam, N. (2010).
+\newblock {Exploiting the physical layer for enhanced security}.
+\newblock {\em IEEE Wireless Communications}, 17(5):63--70.
+
+\bibitem[Mayrhofer and Gellersen 2007]{Mayrhofer2007}
+Mayrhofer, R. and Gellersen, H. (2007).
+\newblock {Shake Well Before Use: Authentication Based on Accelerometer Data}.
+\newblock In {\em 5th International Conference, PERVASIVE 2007}, pages
+  144--161.
+
+\bibitem[Mitra et~al. 2013]{Mitra2013}
+Mitra, S., Wongpiromsarn, T., and Murray, R.~M. (2013).
+\newblock {Verifying Cyber-Physical Interactions in Safety-Critical Systems}.
+\newblock {\em IEEE Security \& Privacy}, 11(4):28--37.
+
+\bibitem[{National Highway Traffic Safety Administration} 2012]{NHTSA2012}
+{National Highway Traffic Safety Administration} (2012).
+\newblock {Laboratory Test Procedure For New Car Assessment Program Frontal
+  Impact Testing}.
+\newblock Technical Report September.
+
+\bibitem[{National Highway Traffic Safety Administration} 2015]{NHTSA2015}
+{National Highway Traffic Safety Administration} (2015).
+\newblock {NHTSA Vehicle Crash Test Database}.
+\newblock http://www-nrd.nhtsa.dot.gov/database/veh/veh.htm.
+\newblock Accessed: 2015-05-05.
+
+\bibitem[Priya and Patil 2014]{Priya2014}
+Priya, L.~C. and Patil, S.~D. (2014).
+\newblock {A Survey on Sensor Authentication in Dynamic Wireless Sensor
+  Networks}.
+\newblock {\em International Journal of Computer Science and Information
+  Technology Research}, 2(2):454--461.
+
+\bibitem[Scannell et~al. 2009]{Scannell2009}
+Scannell, A., Varshavsky, A., Lamarca, A., and de~Lara, E. (2009).
+\newblock {Proximity-based authentication of mobile devices}.
+\newblock {\em International Journal of Security and Networks}, 4(1/2):4--16.
+
+\bibitem[Suh and Devadas 2007]{Suh2007}
+Suh, G.~E. and Devadas, S. (2007).
+\newblock {Physical unclonable functions for device authentication and secret
+  key generation}.
+\newblock {\em Proceedings - Design Automation Conference}, pages 9--14.
+
+\bibitem[Wu et~al. 2011]{Wu2011}
+Wu, F.-J., Chu, F.-I., and Tseng, Y.-C. (2011).
+\newblock {Cyber-physical handshake}.
+\newblock {\em ACM SIGCOMM Computer Communication Review}, 41(4):472.
+
+\bibitem[Yampolskiy and Govindaraju 2008]{Yampolskiy2008}
+Yampolskiy, R.~V. and Govindaraju, V. (2008).
+\newblock {Behavioural biometrics: a survey and classification}.
+\newblock {\em International Journal of Biometrics}, 1(1):81--113.
+
+\end{thebibliography}
