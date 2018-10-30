@@ -11,7 +11,7 @@
      
 \sloppy
 
-\title{Certificados Digitais para Objetos Medidores}
+\title{Usando Certificados Digitais OM-BR para proteção de Medidores de Combustível}
 % \author{Nome do Autor\inst{1}}
 % 
 % \address{Endereço Linha 1\\
@@ -20,21 +20,17 @@
 % }
 
 \author{
-  Wilson S. Melo Jr.\inst{1,2}, Luiz F. R. C. Carmo\inst{1,2}, Altair Olivo Santin\inst{3} (Coordenador),\\
-  Alysson Neves Bessani\inst{4}, Nuno Neves\inst{4}}
+  Wilson S. Melo Jr.\inst{1}, Raphael C. Machado \inst{1}, Bruno Abreu\inst{1},\\ 
+  Ruy Ramos\inst{2}, Luiz F. R. C. Carmo\inst{1,3}}
 \address{Instituto Nacional de Metrologia, Qualidade e Tecnologia (Inmetro)\\
   Duque de Caxias, RJ -- Brasil
 \nextinstitute
+  Instituto Nacional de Tecnologia da Informação\\
+  Brasília -- Brasil
+\nextinstitute
   Universidade Federal do Rio de Janeiro (UFRJ)\\
   Programa de Pós-Graduação em Informática (PPGI) -- Rio de Janeiro, RJ -- Brasil  
-\nextinstitute
-  Pontifícia Universidade Católica do Paraná (PUCPR) – Escola Politécnica\\
-  Programa de Pós-Graduação em Informática (PPGIa) -- Curitiba, PR -- Brasil
-\nextinstitute
-  Faculdade de Ciências da Universidade de Lisboa (FCUL)\\
-  Departamento de Informática -- Lisboa -- Portugal
-\email{\{wsjunior,lfrust\}@inmetro.gov.br, santin@ppgia.pucpr.br} 
-\email{\{anbessani,nfneves\}@ciencias.ulisboa.pt}
+\email{\{wsjunior,rcmachado,beabreu,lfrust\}@inmetro.gov.br, ruy@iti.gov.br}
 }
 
 \begin{document} 
@@ -48,88 +44,29 @@
 %\end{resumo}
 
 \section{Introdução}
-Na última década, um grande esforço em termos de pesquisa e desenvolvimento de padrões industriais tem sido feito para promover a transição das redes elétricas tradicionais para as redes inteligentes (smart grids) \cite{fang2012smart}. Esta mudança visa essencialmente a incorporação de um conjunto de recursos naquelas para fins de confiabilidade, resiliência, segurança, flexibilidade, sustentabilidade e eficiência energética \cite{Rust2010}. A transição, por sua vez, implica na troca dos dispositivos e segmentos da rede para oferecer alternativas inteligentes no controle de consumo, otimização de recursos, controle de congestionamento, provimento de resposta em tempo real, tarifamento em tempo real, minimização de falhas provocadas por distúrbios e controle aperfeiçoado da capacidade de transmissão e distribuição. Esta mudança é apoiada basicamente pelo uso de medidores eletrônicos inteligentes \cite{Zheng2013}, com processamento computacional via eletrônica digital e software embarcado \cite{Rust2010}.
+No mundo todo, a metrologia legal tem o desafio de prover à sociedade a confiabilidade de instrumentos de medição usados em diferentes atividades e relações de consumo.
+Nos países em desenvolvimento, tal desafio torna-se ainda mais complexo em função do elevado número de fraudes associadas a esses instrumentos.
+Somente no Brasil, Rodrigues et al. sugere que o prejuízo causado à sociedade em função de fraudes em medição é superior a XXX.
+Essas fraudes geralmente ocorrem quando uma entidade maliciosa tenta adulterar as respostas fornecidas por um instrumento de medição, obtendo assim vantagens indevidas na comercialização de um determinado bem.
 
-Em consequência, os graduais avanços têm revelado uma série de novos possíveis ataques e ameaças a estas redes inteligentes \cite{Mo2012a,Li2012,Wang2013,Komninos2014}. Muitos desses ataques derivam de aspectos inerentes às redes e sistemas computacionais, tais como  ataques de negação de serviço (DoS), adulteração de dados, comprometimento de recursos e acesso indevido a informações sensíveis \cite{Wang2013}. Todavia, esses mesmos ataques são muitas vezes elevados a uma outra classe de risco, em virtude da interação das redes inteligentes com o mundo físico. Por constituirem um sistema ciber físico \cite{Rawung2014}, as redes inteligentes apresentam complexas interações entre o mundo físico e cibernético, cujas consequências são ainda difíceis de se prever e estimar \cite{Mitra2013}
+Nesse cenário, os medidores de combustível, vulgarmente conhecidos como \emph{bombas de combustível}, são talvez os instrumentos mais visados em termos de fraudes e adulteração de medidas.
+A literatura relata problemas relacionados a estes instrumentos em diferentes países, tais como Brasil, México e Nigéria.
+A fraude associada à medição de combustível pode ser extremamente lucrativa, e ao mesmo tempo difícil de ser exposta.
+Isso motiva especialmente a ação de vendedores de combustível maliciosos, que deliberadamente adulteram o medidor de combustível em uma categoria de fraude conhecida como "bomba baixa".
 
-Ataques associados à identificação, autenticação e controle de acesso em redes inteligentes são tópicos relevantes de estudo e pesquisa. Segundo \cite{Wang2013}, as redes inteligentes incorporam milhões de usuários e dispositivos eletrônicos. Identificação e autenticação constituem processos chave para a verificação de identidade destes usuários e dispositivos, como pré-requisito para conceder acesso aos recursos das redes inteligentes. Para tanto, cada nodo de uma rede inteligente deve ser dotado de mecanismos de segurança e diretivas básicas de criptografia que possibilitem garantir a integridade e autenticidade dos dados gerados pela rede.
+Por mais que o Inmetro intensifique esforços na fiscalização dos medidores de combustível, tal tarefa é complexa em virtude do elevado número de equipamentos e da capilaridade de distribuição destes pelo país.
+Tais características tornam a fiscalização extremamente custosa e mesmo ineficiente contra mecanismos de fraude que podem ser furtivos e facilmente desabilitados pelo atacante na iminência de uma inspeção.
 
-\textit{Blockchains} constituem uma tecnologia que tem se mostrado promissora no contexto de garantir integridade e autenticidade das informações em uma arquitetura fortemente distribuída \cite{Zheng2017,Dorri2017}. O conceito de \textit{blockchain} surgiu como um mecanismo de segurança para viabilizar a implantação de sistemas de cripto-moedas, tais como o \textit{Bitcoin} \cite{Nakamoto2008}. Todavia, sua aplicação vai além deste caso de uso \cite{Crosby2016}, incluindo problemas tais como votação eletrônica \cite{Lee2016}, atestação de integridade de dispositivos \cite{sprague2016automated}, \textit{healthcare} \cite{Yue2016} e diversas aplicações de IoT, podendo ser aplicado também às redes inteligentes \cite{Budde2016}.
+Em face dessas dificuldades, muitos esforços tem sido feitos no sentido de tornar o medidor de combustível um instrumento mais robusto a eventuais ataques.
+A ideia consiste em se propor requisitos de segurança e proteção de software que são expressos em Regulamentos Técnicos Metrológicos (RTMs).
+Tais requisitos, por sua vez, são verificados pelo Inmetro durante as atividades de aprovação de modelo (type approval), previstas na Metrologia Legal como um importante processo para se garantir a confiabilidade metrológica de um instrumento de medição.
+Nesse escopo, e com base em pesquisas desenvolvidas não somente pelo Inmetro, mas também por outros institutos de metrologia em outros países, o Inmetro propôs a inclusão de dois requisitos essenciais para se garantir a integridade, autenticidade e não repúdio de uma medição:
 
-%\textbf{Alysson: Dá para fazer a ligação aqui usando o conceito de oráculo (procurar "Oracle Ethereum", eu não achei uma ref boa... se não conseguir achar nada decente me avise que procuro melhor) e proof-of-stake, que são considerados os mecanismos padrão para a integração de eventos físicos numa blockchain.}
-
-Uma das aplicações associadas a \textit{blockchains} está relacionada à gestão de contratos inteligentes (\textit{smart contracts}) \cite{Christidis2016}. Contratos inteligentes podem ser compreendidos como pedaços de código inseridos como metainformação em um \textit{blockchain}, que serão executados quando uma dada condição for verdadeira. Em contrapartida, contratos inteligentes não conseguem obter informações do mundo real. Uma solução para isso é o uso de oráculos (do inglês, \textit{oracles}, também referenciados como \textit{data feeds}) \cite{Zhang2016}, que podem ser compreendidos como agentes capazes de vincular a ocorrência de um evento no mundo real à execução de um contrato inteligente.
-
-Por sua vez, o uso de fenômenos decorrentes da interação com mundo físico para fins de autenticação constitui uma outra linha de investigação que pode ser considerada no contexto de segurança das redes inteligentes. Essa ideia é inspirada em mecanismos de biometria comportamental \cite{Yampolskiy2008,Rostami2013,Raju2014}, onde a observação de eventos físicos de um sistema biológico fornece informações suficientes para sua identificação. Os mesmos princípios podem ser aplicados a qualquer entidade em sistemas pervasivos que possam mensurar e descrever um evento físico em termos de grandezas físicas. Existem propostas de aplicação para sistemas de instrumentação \cite{MeloJr.2016}, sistemas ciber físicos \cite{Rostami2013} e serviços associados a IoT \cite{Arafin2017}.
-
-Este plano de trabalho propõe combinar as duas linhas de pesquisa descritas para a criação de mecanismos de proteção em redes inteligentes. Enquanto blockchains podem prover um mecanismo distribuído de verificação de integridade e autenticidade dos dados trafegados em uma rede inteligente, a autenticação reforçada por eventos físicos permite criar um vínculo entre esses dados e os eventos físicos observados na rede, reforçando sua autenticidade.
-
-\section{Justificativa}
-\label{justify}
-O uso de \textit{blockchain} provê um mecanismo seguro de verificação da integridade e autenticidade das informações trocadas por entidades confiáveis e não confiáveis de uma rede, sem a necessidade de um terceiro elemento verificador, que seja confiável para todas as demais entidades. Tal característica permite a implementação de mecanismos de verificação distribuídos e independentes, algo absolutamente desejável em sistema com a arquitetura fortemente distribuída de larga escala, como é o caso das redes inteligentes. Além disso, o número de trabalhos científicos propondo o uso de \textit{blackchains} em diferentes aplicações de Internet das Coisas (IoT) tem aumentado gradualmente, o que reforça a justificativa para a investigação de sua aplicabilidade em redes inteligentes.
-
-Um aspecto ainda pouco considerado nessas primeiras experiências entre IoT e \textit{blockchains} é o baixo desempenho dos protocolos tradicionais no \textit{Bitcoin}. Este baixo desempenho se dá tanto em termos de latência (10 minutos para ter uma transação confirmada no \textit{Bitcoin} com altíssima probabilidade) quando de \textit{thoroughput} (7 transações por segundo no \textit{Bitcoin}). Protocolos clássicos de consenso bizantino e replicação de máquina de estados tolerante a intrusões, apesar de sua complexidade, têm sido considerados uma resposta a essas limitações, como pode ser visto em plataformas mais modernas para \textit{blockchains} permissionadas (e.g., Hyperledger Fabric, Symbiont Assembly). 
-
-Já o uso de eventos físicos para reforço na autenticação é uma ideia promissora por se valer de propriedades físicas que já estão presentes nas redes inteligentes. O uso de dispositivos tais como medidores inteligentes permite mensurar e descrever eventos físicos da rede em termos de grandezas físicas, sem a necessidade de quaisquer elementos adicionais. Tal reforço de autenticação pode ser usado, por exemplo, para prover evidências de simultaneidade e co-alocação dos eventos físicos, algo útil na criação de mecanismos contra ataques dos tipos relay e replay. Um exemplo do uso de eventos físicos para identificação de entidades em uma rede inteligente vem do conceito de assinaturas de carga de energia \cite{Zoha2012}, que consiste no uso de métodos não intrusivos para identificar dispositivos elétricos a partir de suas características de consumo de energia.
-
-A combinação das duas linhas de investigação em mecanismos integrados de segurança pode inclusive produzir resultados além dos esperados, uma vez que combinam elementos do mundo físico e do mundo cibernético para prover mecanismos integrados de verificação de integridade e autenticidade dos dados.
-    
-\section{Objetivos}
-São quatro objetivos estabelecidos neste plano de trabalho, considerando os aspectos mais relevantes à pesquisa proposta.
-
-O primeiro deles diz respeito à possibilidade de se utilizar \textit{blockchains} na concepção de mecanismos distribuídos de verificação de integridade e autenticidade dos dados de transações de uma rede inteligente. Embora existam trabalhos sugerindo que isto é possível, faz-se necessária uma investigação detalhada de quais as alternativas a serem adotadas nesta abordagem.
-
-O segundo objetivo diz respeito à avaliação da eficiência dos mecanismos propostos como consequência do objetivo anterior. Será preciso comparar os resultados obtidos de quaisquer novos mecanismos propostos com trabalhos já existentes, de modo a verificar sob quais aspectos existem vantagens, e mapear também as eventuais desvantagens.
-
-A seguir, o terceiro objetivo proposto é investigar a viabilidade do uso de eventos físicos como reforço para os mecanismos de verificação de integridade e autenticidade avaliados. Uma vez que as redes inteligentes são sistemas que interagem com o mundo físico e portanto coletam eventos físicos, pode se esperar que esse objetivo será alcançado. Todavia, é preciso avaliar e propor alternativas pelas quais as duas tecnologias podem ser combinadas de forma producente.
-
-Por fim, o último objetivo consiste na avaliação da eficiência das possíveis abordagens decorrentes da combinação de eventos físicos e \textit{blockchains}. Espera-se mapear as vantagens e desvantagens dos mecanismos avalidados, bem como descrever as comparações entre estes e as demais abordagens já consolidadas na literatura.
-
-Os objetivos podem assim ser sintetizados nas seguintes perguntas de pesquisa:
 \begin{itemize}
-\item Q1: É possível construir mecanismos distribuídos de verificação de integridade e autenticidade dos dados de transações geradas por uma rede inteligente, usando \textit{blockchains}?
-\item Q2: Se estes mecanismos são factíveis, como construí-los de forma eficiente?
-\item Q3: O uso de eventos físicos para reforço dos mecanismos de autenticação constitui uma abordagem viável?
-\item Q4: Considerando as alternativas propostas e avaliadas, quais são efetivamente as vantagens e desvantagens de se utilizar estes mecanismos em redes inteligentes?
+    \item O uso de assinatura digital do registro legalmente relevante do instrumento, no momento mais próximo possível da concretização de uma medição, e;
+    \item O uso de certificados digitais padrão ICP-Brasil, que são aqueles em conformidade com a Infraestrutura de Chave Pública oficial do país.
 \end{itemize}
 
-\section {Metodologia}
-As metodologias que serão associadas ao estudo da aplicação de \textit{blockchains} em redes inteligentes visam lidar com desafios que esta tecnologia enfrenta atualmente. Um deles diz respeito à questão de desempenho, já mencionada na seção \ref{justify}. Para tanto, uma metodologia a ser considerada diz respeito ao uso de protocolos de Consenso Bizantino, incluindo os \textit{fully descentralized}\cite{moniz2011ritas} e com participantes desconhecidos \cite{alchieri2016knowledge}. Outro desafio fundamental diz respeito a implementação dessas metodologias em um sistema real. Até o momento, bons resultados foram obtidos no campo teórico. O BFT-SMaRt \cite{bessani2014state}, um sistema JAVA de código aberto desenvolvida pelo grupo da FCUL, tem sido considerado como uma alternativa nesse novo modelo. Além disso, serão estudados também os conceitos de oráculos para \textit{blockchains} e funções de custo baseadas em \textit{proof-of-stake} como metodologias para gerenciamento de contratos inteligentes e solução de problemas de consenso, respectivamente.
-
-%\textbf{Alysson: Algumas ideias para vc explorar. Problemas de desempenho, protocolo de consenso bizantino, incluindo os fully descentralized (http://ieeexplore.ieee.org/document/4695836/) e com participantes desconhecidos (http://ieeexplore.ieee.org/document/7444180/). Uma challenge fundamental é como fazer isso num sistema real, e não apenas no campo teórico, onde temos experiência (ver http://ieeexplore.ieee.org/document/6903593/ e https://www.usenix.org/system/files/conference/atc13/atc13-bessani.pdf)}
-
-A investigação do uso de eventos físicos para reforço de autenticação deve inicialmente requerer a coleta de dados de uma rede inteligente, real ou simulada. Neste caso, será preciso definir o uso de bases de dados públicas contendo dados de monitoramento dessas redes, ou ainda a escolha de uma ferramenta capaz de simular esses dados. O tratamento dos eventos físicos, por sua vez, envolve o uso de ferramentas computacionais tais como o Scilab \cite{Scilab2012} e o SciPhy \cite{SciPy2017}. Métodos matemáticos específicos associados a processamento de sinais e fusão de dados, tais como Correlação de Pearson, Coerência, \textit{Dynamic Time Wrapping} (DMC) e Distância de Hamming, podem ser combinados na construção e verificação de identificadores.
-
-Uma vez estabelecidos os modelos de \textit{blockchains} e os identificadores de eventos físicos disponíveis, a chave para a junção dos dois pode estar na implementação de oráculos que notificam contratos inteligentes nos \textit{blockchains} a respeito da ocorrência de eventos físicos em redes inteligentes. A combinação dessas metodologias pode possibilitar a concepção de um sofisticado mecanismo de verificação de integridade e autenticação distribuído, capaz de vincular informações em ambos os domínios físico e cibernético de sistemas IoT.
-
-\section{Plano de Atividades}
-Este plano de trabalho tem duração de 12 meses, período de duração do intercâmbio do estudante. O projeto considera as seguintes atividades a serem elaboradas pelo estudante, durante o tempo do projeto:
-
-\begin{enumerate}[label=\Alph*]
-\item Atualização da revisão sistemática da literatura em \textit{blockchains}, smart contracts, oracles, \textit{proof-of-stake} e protocolos tolerantes a faltas bizantinas.
-\item Projeto (ou adaptação) de \textit{blockchains} para sistemas IoT, que seja capaz de interagir de forma segura com o mundo físico.
-\item Aplicação deste modelos em redes inteligentes.
-\item Avaliação e generalização das ideias para outras áreas.
-\item Publicação de artigos científicos em periódicos de alto fator de impacto.
-\end{enumerate}
-
-O cronograma das atividades elencadas encontra-se exposto na Tabela \ref{crono}:
-
-\begin{table}[ht]
-\centering
-\caption{Cronograma de Atividades}
-\label{crono}
-\begin{tabular}{|c|l|l|l|l|l|l|l|l|l|l|l|l|}
-\hline
- & \multicolumn{12}{c|}{\textbf{Mês}} \\ \cline{2-13} 
-\multirow{-2}{*}{\textbf{Atividade}} & 01 & 02 & 03 & 04 & 05 & 06 & 07 & 08 & 09 & 10 & 11 & 12 \\ \hline
-A & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} &  &  &  &  &  &  &  &  &  \\ \hline
-B &  &  & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} &  &  &  &  &  &  \\ \hline
-C &  &  &  &  & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} &  &  &  &  \\ \hline
-D &  &  &  &  &  &  & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} &  &  \\ \hline
-E &  &  &  &  &  &  &  &  & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} \\ \hline
-\end{tabular}
-\end{table}
 
 %\pagebreak
 
