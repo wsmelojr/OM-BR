@@ -86,6 +86,25 @@ A Figura \ref{f:transducer} ilustra o funcionamento do \textit{pulser} em um tí
 \label{f:transducer}
 \end{figure}
 
+\section{Principais ataques em medidores de combustível}
+A norma técnica NIT-Sinst-022 documenta diferentes tipos de ataques contra bombas de combustível detectados e catalogados por agentes do Inmetro no período de 2013 a 2016.
+Entre os principais ataques é possível citar:
+
+\subsection{Fraudes em placas controladoras do \textit{pulser}}
+
+
+\subsection{Fraudes em placas controladoras do \textit{pulser}}
+São os casos onde componentes eletrônicos associados à placa de contagem de pulsos são modificados (ou inseridos) de modo a incrementar o número de pulsos, resultando assim em uma medição fraudulenta.
+
+
+\subsection{Fraudes usando sistemas de gerenciamento}
+Essa categoria de fraude caracteriza-se pelo uso de um mecanismo de ataque baseado na ideia de \textit{man-in-the-middle}.
+Para tanto ele se vale do sistema de gerenciamento do medidor de combustível.
+Esse sistema é externo ao medidor e tem a função de obter informações e enviar comandos específicos.
+Quando fraudado, o sistema de gerenciamento é programado para interceptar a informação de medição dada pelo \textit{pulser}, modificá-la acrescentando um valor maior e retornar esse valor adulterado ao medidor de combustível, para que o mesmo seja exibido no \textit{display} disponibilizado ao consumidor.
+
+
+
 
 
 \begin{figure}[ht]
