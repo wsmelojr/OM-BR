@@ -11,7 +11,7 @@
      
 \sloppy
 
-\title{Certificação Digital como Ferramenta de Segurança para Medidores Infeligentes}
+\title{Usando Certificados Digitais OM-BR para proteção de Medidores de Combustível}
 % \author{Nome do Autor\inst{1}}
 % 
 % \address{Endereço Linha 1\\
@@ -40,35 +40,10 @@
 %\begin{abstract}
 %\end{abstract}
      
-\begin{resumo} 
-Neste trabalho apresentamos uma solução de certificação digital voltada para medidores inteligentes. A solução proposta atende a requisitos de identificação presentes em diversos cenários da Metrologia Legal e extende modelos anteriores de autenticação de medidores inteligentes. A proposta deu origem a um novo tipo de certificado digital denominado ``Certificado Digital para Objetos Metrológicos'', recentemente aprovado pelo Comitê Gestor da ICP-Brasil, e está sendo utilizada em bombas medidoras de combustível com o objetivo de reduzir fraudes e falhas de segurança.
-\end{resumo}
+%\begin{resumo} 
+%\end{resumo}
 
 \section{Introdução}
-
-Certificação digital é a associação, realizada por uma parte confiável, entre uma chave pública de um indivíduo e a identificação daquele indivíduo. Na prática, a certificação digital permite que se tenha confiança nas assinaturas digitais geradas por um indivíduo, funcionando, portanto, como um mecanismo de apoio a protocolos de identificação e autenticação.
-
-Embora o uso de certificados digitais esteja tradicionalmente associado a pessoas físicas, os requisitos de autenticação e identificação estão presentes em diversos cenários envolvendo o uso de dispositivos inteligentes. Uma área em que os requisitos de autenticação e identificação são particularmente interessantes é a área de Metrologia Legal. A motivação para tais requisitos é evidente. Medidores inteligentes são dispositivos que operam, na maior parte do tempo, de forma autônoma, muitas vezes, em ambientes hostis, e gerando informações de interesse financeiro e legal. Dessa forma, tais medidores são, frequentemente, objetos de ataques de segurança objetivando adulterar os dados por eles gerados. A capacidade de proteger a integridade de tais dados, portanto, é de importância central para o equilíbrio das relações baseadas em tais medidores.
-
-Historicamente, observa-se uma série de abordagens para a implementação de protocolos de identificação e autenticação de medidores inteligentes. Tais iniciativas, no entanto, apresentam limitações relacionadas ao uso de modelos simplificados de gerenciamento de chaves. No presente trabalho, apresentamos um modelo de identificação baseado no uso de infraestruturas de chaves públicas, inclusive com a proposta de um novo tipo de certificado digital que passou a integrar a lista de certificados digitais oficiais da ICP-Brasil. A proposta está sendo implementado na construção de novos modelos de Bombas Medidoras de Combustível com o objetivo de dificultar ataques de segurança e reduzir riscos de fraude.
-
-O presente artigo está organizado da seguinte forma. Na Seção 2, apresentamos um histórico das abordagens de identificação e autenticação de medidores inteligentes usados recentemente no Brasil. Na Seção 3 apresentamos trabalhos relacionados.... A Seção 4 descreve a nossa proposta para o uso de certificação digital em medidores inteligentes. A Seção 5 contém um estudo de caso de aplicação da proposta de certificação digital para o caso das bombas medidoras de combustível. A Seção 6 contém nossas considerações finais.
-
-
-\section{Contexto Histórico / Conceitos}
-
-AQUI DEPOIS TEREMOS QUE COMPLEMENTAR COM A HISTÓRIA COMPLETA:
-
-- OS REQUISITOS DE IDENTIFICAÇÃO JÁ PRESENTES EM 2009, ESPECIALMENTE PARA EQUIPAMENTOS COM REDE INTERNA
-
-- AS ARQUITETURAS ESPECIAIS (ACHO QUE SURGIRAM COM O MEDIDOR DE UMIDADE DE GRAOS)
-
-- O CASO DO REP - QUE NÃO É EXATAMENTE METROLOGIA LEGAL MAS NÃO DEIXA DE SER UM MEDIDOR
-
-- A PROPOSTA PARA CERTIFICADO DIGITAL EM BMC
-
-TEMOS QUE FALAR, EM ALGUM LUGAR, DOS CONCEITOS DE METROLOGIA LEGAL (TIPO APROVAÇÃO DE MODELO) E FALAR TAMBÉM DE ICP BRASIL.
-
 No mundo todo, a metrologia legal tem o desafio de prover à sociedade a confiabilidade de instrumentos de medição usados em diferentes atividades e relações de consumo \cite{RodriguesFilho2015}.
 Nos países em desenvolvimento, tal desafio torna-se ainda mais complexo em função do elevado número de fraudes associadas a esses instrumentos.
 \cite{RodriguesFilho2016} apontam que, apenas no Brasil, o prejuízo causado à sociedade em função de fraudes em medição é da ordem de U\$ 300 milhões por ano.
@@ -129,20 +104,7 @@ Os guias de diretivas de proteção sofware de instrumentos de medição WELMEC 
 Todavia, esses guias não fazem qualquer menção ao uso de certificados digitais.
 
 
-\section{Modelo Proposto}
-
-ESTAVA FALTANDO UMA SEÇÃO SOBRE A PROPOSTA. MESMO QUE SEJA CURTINHA, ACHO QUE ELA DEVERIA TRAZER DUAS COISAS:
-
-1) AS IDEIA BÁSICAS DE IMPLEMENTAÇÃO (AQUELA IDEIA DE TRAZER PARA PRÓXIMO DA CONCRETIZAÇÃO DA MEDIDA)
-
-2) OS REQUISITOS DO CERTIFICADO (DISCUTIR DIFERENÇAS EM RELAÇÃO À DURAÇÃO, ALGORITMOS ETC.)
-
-E FECHAR A SEÇÃO COM A DESCRIÇÃO GERAL DO CERTIFICADO OM-BR
-
-
-\section{Estudo de Caso: Uso de Certificação Digital em Bombas Medidoras de Combustível}
-
-\subsection{Funcionamento de uma bomba de combustível}
+\section{Como funciona uma bomba de combustível}
 Um medidor de combustível basicamente bombeia o combustível de um tanque subterrâneo, passando por um transdutor de medição responsável pela medição.
 O combustível segue então por um duto ou mangueira, sob o controle de uma válvula solenóide, sendo por fim injetado por meio de um bico no tanque do carro.
 O transdutor é tipicamente representado por um eixo mecânico integrado a um pulsador.
@@ -157,32 +119,28 @@ A Figura \ref{f:transducer} ilustra o funcionamento do \textit{pulser} em um tí
 \label{f:transducer}
 \end{figure}
 
-\subsection{Principais ataques em medidores de combustível}
-
-ACHO QUE FALTOU DIZER QUE TODOS OS ATAQUES SE BASEIAM NA ADULTERAÇÃO DOS DADOS GERADOS PELO PULSER, O QUE SINALIZA PARA A NECESSIDADE DE IDENTIFICAR O PULSER E PROTEGER OS DADOS POR ELE GERADO, APONTANDO PARA O USO DE UM CERTIFICADO DIGITAL NO PRÓPRIO PULSER
-
+\section{Principais ataques em medidores de combustível}
 A norma técnica NIT-Sinst-022 documenta diferentes tipos de ataques contra bombas de combustível detectados e catalogados por agentes do Inmetro no período de 2013 a 2016.
-
 Entre os principais ataques é possível citar:
 
-\subsubsection{Fraudes em placas controladoras do \textit{pulser}}
+\subsection{Fraudes em placas controladoras do \textit{pulser}}
 
 
-\subsubsection{Fraudes em placas controladoras do \textit{pulser}}
+\subsection{Fraudes em placas controladoras do \textit{pulser}}
 São os casos onde componentes eletrônicos associados à placa de contagem de pulsos são modificados (ou inseridos) de modo a incrementar o número de pulsos, resultando assim em uma medição fraudulenta.
 
 
-\subsubsection{Fraudes usando sistemas de gerenciamento}
+\subsection{Fraudes usando sistemas de gerenciamento}
 Essa categoria de fraude caracteriza-se pelo uso de um mecanismo de ataque baseado na ideia de \textit{man-in-the-middle}.
 Para tanto ele se vale do sistema de gerenciamento do medidor de combustível.
 Esse sistema é externo ao medidor e tem a função de obter informações e enviar comandos específicos.
 Quando fraudado, o sistema de gerenciamento é programado para interceptar a informação de medição dada pelo \textit{pulser}, modificá-la acrescentando um valor maior e retornar esse valor adulterado ao medidor de combustível, para que o mesmo seja exibido no \textit{display} disponibilizado ao consumidor.
 
 
-\subsection{Procedimento para uso de certificados digitais em BMCs}
+\section{Uso de certificados digitais}
 Esboço feito pelo Raphael sobre o processo:
 
-\subsubsection{Fabricação do Pulser}
+\subsection{Fabricação do Pulser}
 Neste novo modelo de medidor de combustível, o pulser é concebido como um dispositivo único e selado.
 Isso implica que todos os subcomponentes responsáveis por suas funcionalidades são encapsulados em um invólucro de segurança.
 Em caso de defeito em qualquer dos seus subcomponentes, o pulser deve ser substituído como um todo.
@@ -197,7 +155,7 @@ Cada pulser é associado a um identificador único, correspondente a seu número
 A chave pública do pulser também pode constituir um identificador, dado seu caráter único.
 Deste modo, pode-se dizer que existem dois identificadores, um forte e um fraco, sendo esses respectivamente a chave pública do pulser e seu número de série.
 
-\subsubsection{Fabricação do medidor de combustível}
+\subsection{Fabricação do medidor de combustível}
 A fabricação do medidor de combustível envolve a integração do pulser aos demais componentes de constituição mecânica, hidráulica, elétrica e eletrônica que o constituem.
 É importante observar, todavia, que o pulser passa a incorporar todas as funcionalidades legalmente relevantes do medidor.
 Ainda que outros componentes sejam usados para exibição de informação legalmente relevante (e.g., \textit{display} informando o volume abastecido em litros), tal informação é rastreável à assinatura digital da medição feita pelo pulser, o que encerra a cadeia legalmente relevante.
@@ -207,14 +165,14 @@ Quando o pulser é instalado no medidor de combustível, o fabricante associa o 
 É importante observar que essa associação existe enquanto o pulser se encontra funcional dentro deste medidor.
 Se em algum momento a substituição do pulser se faz necessária, essa associação é atualizada, de modo a se manter o controle de qual pulser se encontra funcional dentro de cada medidor de combustível.
 
-\subsubsection{Verificação inicial}
+\subsection{Verificação inicial}
 A verificação inicial é feita por um organismo de inspeção delegado pela autoridade regulamentadora em cada novo medidor de combustível.
 A mesma ocorre ainda em fábrica, constituindo um pré-requisito para a comercialização do mesmo.
 Nessa verificação, o organismo de inspeção verifica se o instrumento apresenta as características de projeto correspondentes à sua aprovação de modelo, bem como executa testes metrológicos para se certificar de que a incerteza de medição apresentada pelo instrumento se encontra dentro dos limites aceitáveis.
 Em seguida, o organismo de inspeção exerce também a atividade de Autoridade de Registro, verificando a existência da chave pública do medidor (e sua correspondente chave privada), bem como coletando as informações de cunho legal que comporão o certificado digital OM-BR deste medidor.
 Consequentemente, o organismo de inspeção torna-se também o responsável pela emissão das informações à respectiva Autoridade Certificadora.
 
-\subsubsection{Emissão do certificado digital}
+\subsection{Emissão do certificado digital}
 De posse das informações ja verificadas pela AR, a AC é responsável pela emissão do certificado digital OM-BR a ser embarcado no medidor de combustível.
 Como já discutido anteriormente, o certificado digital associa de forma única e irrefutável o respectivo medidor de combustível a sua chave pública.
 Desta forma, as medições obtidas a partir deste instrumento de medição tem sua rastreabilidade assegurada, sendo impossível a negação de que determinada medição não foi gerada pelo respectivo pulser.
@@ -224,7 +182,7 @@ A possibilidade de que o fabricante não proceda com a gravação do certificado
 Isso porque, na incidência de qualquer uma das situações, o medidor será incapaz de realizar suas funções de forma apropriada.
 Deste modo, tais situações são detectadas de imedito na operação do instrumento.
 
-\subsubsection{Instalação em campo}
+\subsection{Instalação em campo}
 Uma vez concluidas as etapas anteriores, o medidor de combustível pode ser comercializado e instalado em campo normalmente.
 As oficinas autorizadas responsáveis por essa tarefa ficam também responsáveis por informar ao organismo de inspeção o identificador do medidor, identificador do seu respectivo pulser no momento da instalação, bem como o local de instalação do mesmo e as informações relevantes do detentar do instrumento (e.g., CNPJ e razão social do posto de combustível).
 
@@ -232,7 +190,7 @@ Periodicamente, o organismo de inspeção realiza a verificação do medidor em 
 Nessas circunstâncias, além de proceder com a verificação das funcionalidades metrológica e legalmente relevantes, o organismo de inspeção confirma também se a respectiva associação entre o identificador do medidor, o identificador do pulser e as informações complementares do detentor do instrumento permanecem consistentes.
 Tal procedimento garante que não ocorreram substituições indevidas do pulser, ou ainda a realocação do medidor de combustível como um todo.
 
-\subsubsection{Substituição de pulser e realocações de medidores de combustível}
+\subsection{Substituição de pulser e realocações de medidores de combustível}
 Em caso de necessidade de substituição de um pulser, seja por defeito ou violação do mesmo, ou ainda de realocação do medidor de combustível como um todo para um novo ponto de instalação, a oficina autorizada responsável deve comunicar o evento ao organismo de inspeção, procedendo conforme definido na subseção anterior.
 
 \begin{figure}[t!]
@@ -241,18 +199,6 @@ Em caso de necessidade de substituição de um pulser, seja por defeito ou viola
 \caption{Diagrama descrevendo papéis de AR e AC}
 \label{f:scheme}
 \end{figure}
-
-
-\subsection{Implementação}
-
-AQUI TERÍAMOS QUE CONVERSAR COM OS FABRICANTES PARA APRESENTAR, PELO MENOS EM LINHAS GERAIS, AS SOLUÇÕES TECNOLÓGICAS QUE ESTÃO SENDO USADAS. SEI QUE NÃO É TRIVIAL, MAS É IMPORTANTE O TRABALHO TER ALGUM TIPO DE RESULTADO (PRA NÃO FICAR MUITO COM CARA DE TRABALHO EM ANDAMENTO).
-
-
-\section{Considerações Finais}
-
-UMA DAS COISAS QUE TEM QUE CONSTAR AQUI É O FATO DE QUE, EMBORA O TRABALHO ESTEJA VOLTADO PARA MEDIDORES INTELIGENTES, OS REQUISITOS DE IDENTIFICAÇÃO E AUTENTICAÇÃO SÃO APLICÁVEIS A OUTROS TIPOS DE DISPOSITIVOS INTELIGENTES, SENDO DE ENORME INTERESSE POTENCIAL NO CENÁRIO DE INTERNET DAS COISAS ETC ETC ETC.
-
-
 
 %\pagebreak
 
